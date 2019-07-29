@@ -8,7 +8,7 @@ steps:
     CODECOV_TOKEN:
       from_secret: codecov_token
   commands:
-  - apt-get update && apt-get install -y make
+  - apt-get update && apt-get install -y make git
   - pip install -r requirements.txt
   - make test-ci COMMIT_SHA=${DRONE_COMMIT_SHA}
 
