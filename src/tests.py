@@ -2,7 +2,7 @@ import datetime
 
 from slugify import slugify
 
-from src.prom_time import manage_step_timer, retrieve_time_step_object_from_pickled_file, TimedStep
+from src.step_timer import manage_step_timer, retrieve_time_step_object_from_pickled_file, TimedStep
 
 
 class TestTimedStep(object):
