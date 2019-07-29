@@ -7,10 +7,11 @@ from src.step_timer import manage_step_timer, retrieve_time_step_object_from_pic
 
 class TestTimedStep(object):
 
-    def test_persists_timed_step_object_correctly_when_moment_is_start(self, resource_file='wtf.timer'):
-        step_timer = manage_step_timer(identifier=None, step_name='SHU STEP', moment='start')
+    def test_persists_timed_step_object_correctly_when_moment_is_start(self):
+        resource_name = 'shu.timer'
 
-        persisted_step_timer = retrieve_time_step_object_from_pickled_file(identifier=step_timer.identifier)
+        step_timer = manage_step_timer(step_name='SHU STEP', moment='start', resource=resource_name)
+        persisted_step_timer = retrieve_time_step_object_from_pickled_file(resource=resource_name)
 
         assert persisted_step_timer
         assert step_timer.start_time == persisted_step_timer.start_time
@@ -18,10 +19,11 @@ class TestTimedStep(object):
         assert persisted_step_timer.step_name == slugify('SHU STEP')
 
     def test_persists_timed_step_object_correctly_when_moment_is_end(self):
-        manage_step_timer(identifier=None, step_name='SHU STEP', moment='start')
+        resource_name = 'shu.timer'
 
-        step_timer = manage_step_timer(identifier=None, step_name='SHU STEP', moment='end')
-        persisted_step_timer = retrieve_time_step_object_from_pickled_file(identifier=step_timer.identifier)
+        manage_step_timer(step_name='SHU STEP', moment='start', resource=resource_name)
+        step_timer = manage_step_timer(step_name='SHU STEP', moment='end', resource=resource_name)
+        persisted_step_timer = retrieve_time_step_object_from_pickled_file(resource=resource_name)
 
         assert persisted_step_timer
         assert step_timer.start_time == persisted_step_timer.start_time
