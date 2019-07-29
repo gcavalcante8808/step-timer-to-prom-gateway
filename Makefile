@@ -8,5 +8,5 @@ test:
     coverage html
 
 test-ci: test
-    codecov --token=$${CODECOV_TOKEN}
+    codecov --token=$${CODECOV_TOKEN} --commit=${COMMIT_SHA}
 
