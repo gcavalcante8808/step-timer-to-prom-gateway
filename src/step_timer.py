@@ -6,10 +6,8 @@ from __future__ import unicode_literals
 
 import pickle
 from datetime import datetime
-from tempfile import TemporaryFile
 from uuid import uuid4
 
-import click
 from slugify import slugify
 
 
