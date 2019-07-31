@@ -4,7 +4,7 @@ SHELL = /bin/bash
 .PHONY: test test-ci
 
 test:
-    coverage run --source=./src -m pytest src/tests.py
+    coverage run --source=./src -m pytest src/tests/
     coverage html
 
 test-ci: test

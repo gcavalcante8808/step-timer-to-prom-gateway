@@ -56,7 +56,7 @@ def manage_step_timer(step_name, moment, resource='current_step.timer'):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Manage Step Times.')
     parser.add_argument('--moment', choices=['start', 'end', 'summary'], required=True)
-    parser.add_argument('--step_name', required=False)
+    parser.add_argument('--step_name', required=True)
     parser.add_argument('--resource', type=str, required=False, default='current_step.timer')
     args = parser.parse_args()
 
