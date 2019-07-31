@@ -17,7 +17,7 @@ steps:
   commands:
   - apt-get update && apt-get install -y make git
   - pip install -r requirements.txt
-  - make build_release_binaries
+  - make build_and_test_release_binaries
 
 #- name: release
 #  image: python:3-slim

@@ -14,8 +14,10 @@ release:
     @echo "Not Implemented Yet."
     exit 1
 
+.ONESHELL: build_and_test_release_binaries
 build_and_test_release_binaries:
+    cd src
     pyinstaller -F step_timer.py
-    pyinstaller -F send_to_prometheus_gateway
+    pyinstaller -F send_to_prometheus_gateway.py
     dist/step_timer --help
     dist/send_to_prometheus_gateway --help
