@@ -6,7 +6,7 @@ steps:
   image: python:3-slim
   environment:
     CODECOV_TOKEN:
-      from_secret: codecov_token
+      from_secret: CODECOV_TOKEN
   commands:
   - apt-get update && apt-get install -y make git
   - pip install -r requirements.txt
