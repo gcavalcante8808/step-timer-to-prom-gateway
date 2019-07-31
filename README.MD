@@ -39,7 +39,7 @@ You can send it to a prometheus gateway using the following commands:
 
 ```bash
     export PROMETHEUS_GATEWAY_ADDR=http://localhost:9091
-    ./send_to_prometheus_gateway --resource 'current_step.timer'
+    ./send_to_prometheus_gateway.py --resource 'current_step.timer'
 ```
 
 Supported args:
@@ -47,3 +47,6 @@ Supported args:
  * job: Name of the job that will be used on prometheus_gateway (`Default` by default :D)
  * prometheus_gateway_addr: URL address of the prometheus gateway (if not passed the env var `PROMETHEUS_GATEWAY_ADDR` will be used instead).
  
+ ### Binary Releases
+ 
+ You can find some binary releases created with `pyinstaller` that can be used by any linux with glibc support (`alpine` is not supported yet because it needs a muslibc build)
