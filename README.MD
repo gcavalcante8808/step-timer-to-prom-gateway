@@ -15,7 +15,7 @@ Before the action that you want to time, run the following statement:
 Run any command normally and then write the end moment with the following command:
 
 ```bash
-    ./step_timer.py --moment end
+    ./step_timer.py --moment end --step-name "Name of Step"
 ```
 
 ## Summary
@@ -23,15 +23,27 @@ Run any command normally and then write the end moment with the following comman
 After executing `start` and `end` moment you can view the result stored by passing `summary` to moment:
 
 ```bash
-    ./step_timer.py --moment summary 
+    ./step_timer.py --moment summary --step-name "Name of Step"
 ```
 
+**If you just executed the steps above an file named `current_job.timer` hold a `TimedStep` object persisted with pickle.**
+
+Supported args:
+ * moment: Start, End or Summary
+ * step_name: The name of the step that will be timed.
+ * resource: The name of resource file that will be created (`current_step.timer` by default)
+ 
 ## Send to Prometheus Gateway
 
-If you just executed the steps above an file named `current_job.timer` hold a `TimedStep` object persisted with pickle.
 You can send it to a prometheus gateway using the following commands:
 
 ```bash
     export PROMETHEUS_GATEWAY_ADDR=http://localhost:9091
     ./send_to_prometheus_gateway --resource 'current_step.timer'
 ```
+
+Supported args:
+ * resource: Resource created by the `step_timer.py`;
+ * job: Name of the job that will be used on prometheus_gateway (`Default` by default :D)
+ * prometheus_gateway_addr: URL address of the prometheus gateway (if not passed the env var `PROMETHEUS_GATEWAY_ADDR` will be used instead).
+ 
