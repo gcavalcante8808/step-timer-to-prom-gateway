@@ -1,5 +1,6 @@
 prometheus-client==0.7.1
 click==7.0
-python-slugify==3.0.3
+python-slugify[unidecode]==2.0.1
 pytest==5.0.1
 codecov==2.0.15
+PyInstaller==3.5
