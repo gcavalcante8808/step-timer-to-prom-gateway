@@ -33,5 +33,4 @@ steps:
   - pip install -r requirements.txt
   - make release GITHUB_TOKEN=$${GITHUB_TOKEN}
   when:
-    branch: improvement/add-pyinstaller-binaries-support
-
+    branch: master
