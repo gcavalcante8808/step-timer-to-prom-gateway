@@ -19,18 +19,19 @@ steps:
   - pip install -r requirements.txt
   - make build_and_test_release_binaries
 
-#- name: release
-#  image: python:3-slim
-#  environment:
-#    GITHUB_TOKEN:
-#      from_secret: GHR_TOKEN
-#  commands:
-#  - apt-get update && apt-get install -y make git curl ca-certificates
-#  - curl -L https://github.com/tcnksm/ghr/releases/download/v0.12.2/ghr_v0.12.2_linux_amd64.tar.gz -o /tmp/ghr.tar.gz
-#  - tar -xzvf /tmp/ghr.tar.gz -C /tmp --strip-components=1
-#  - mv /tmp/ghr /usr/local/bin/
-#  - chmod +x /usr/local/bin/ghr
-#  - pip install -r requirements.txt
-#  - make release GITHUB_TOKEN=$${GITHUB_TOKEN}
-#  when:
-#    branch: master
+- name: release
+  image: python:3-slim
+  environment:
+    GITHUB_TOKEN:
+      from_secret: GHR_TOKEN
+  commands:
+  - apt-get update && apt-get install -y make git curl ca-certificates binutils
+  - curl -L https://github.com/tcnksm/ghr/releases/download/v0.12.2/ghr_v0.12.2_linux_amd64.tar.gz -o /tmp/ghr.tar.gz
+  - tar -xzvf /tmp/ghr.tar.gz -C /tmp --strip-components=1
+  - mv /tmp/ghr /usr/local/bin/
+  - chmod +x /usr/local/bin/ghr
+  - pip install -r requirements.txt
+  - make release GITHUB_TOKEN=$${GITHUB_TOKEN}
+  when:
+    branch: improvement/add-pyinstaller-binaries-support
+
