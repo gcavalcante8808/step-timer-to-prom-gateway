@@ -12,7 +12,7 @@ steps:
   - pip install -r requirements.txt
   - make test-ci COMMIT_SHA=${DRONE_COMMIT_SHA}
 
-- name: make release binaries
+- name: release's binaries tests
   image: python:3-slim
   commands:
   - apt-get update && apt-get install -y make git binutils
