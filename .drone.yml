@@ -3,7 +3,7 @@ name: default
 
 steps:
 - name: tests
-  image: python:3-slim
+  image: python:3-slim-stretch
   environment:
     CODECOV_TOKEN:
       from_secret: CODECOV_TOKEN
@@ -13,14 +13,14 @@ steps:
   - make test-ci COMMIT_SHA=${DRONE_COMMIT_SHA}
 
 - name: release's binaries tests
-  image: python:3-slim
+  image: python:3-slim-stretch
   commands:
   - apt-get update && apt-get install -y make git binutils
   - pip install -r requirements.txt
   - make build_and_test_release_binaries
 
 - name: release
-  image: python:3-slim
+  image: python:3-slim-stretch
   environment:
     GITHUB_TOKEN:
       from_secret: GHR_TOKEN
