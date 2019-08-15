@@ -23,7 +23,7 @@ build_and_test_release_binaries:
     pyinstaller -F send_to_statsd.py
     dist/step_timer --help
     dist/send_to_prometheus_gateway --help
-    dist/send_to_statsd.py --help
+    dist/send_to_statsd --help
 
 clear:
     cd src
