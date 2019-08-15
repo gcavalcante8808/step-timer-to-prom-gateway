@@ -9,7 +9,7 @@ import argparse
 import os
 import sys
 
-from prometheus_client import CollectorRegistry, Gauge, push_to_gateway
+from prometheus_client import CollectorRegistry, Gauge, pushadd_to_gateway
 
 sys.path.insert(0, '../')
 
@@ -25,7 +25,7 @@ class PrometheusGateway(object):
 
     def send(self, job_name):
         # type: (str) -> None
-        push_to_gateway(self.prometheus_gateway_addr, job=job_name, registry=self.registry)
+        pushadd_to_gateway(self.prometheus_gateway_addr, job=job_name, registry=self.registry)
 
 
 def get_timed_step(resource):
