@@ -12,7 +12,7 @@ test-ci: test
 
 release: clear build_and_test_release_binaries
     cd src
-    ghr -replace v1.0.0 dist/
+    ghr -replace v1.1.0 dist/
 
 
 .ONESHELL: build_and_test_release_binaries
@@ -20,8 +20,10 @@ build_and_test_release_binaries:
     cd src
     pyinstaller -F step_timer.py
     pyinstaller -F send_to_prometheus_gateway.py
+    pyinstaller -F send_to_statsd.py
     dist/step_timer --help
     dist/send_to_prometheus_gateway --help
+    dist/send_to_statsd.py --help
 
 clear:
     cd src
