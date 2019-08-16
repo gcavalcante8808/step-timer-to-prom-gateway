@@ -32,7 +32,15 @@ Supported args:
  * moment: Start, End or Summary
  * step_name: The name of the step that will be timed.
  * resource: The name of resource file that will be created (`current_step.timer` by default)
- 
+
+## Send to StatsD (or StatsD Exporter)
+
+You can send it to a statsd host using the following commands:
+```bash
+   export STATSD_HOST=localhost
+   ./send_to_statsd --resource 'current_step.timer' --metric "my.own.metric"
+```
+
 ## Send to Prometheus Gateway
 
 You can send it to a prometheus gateway using the following commands:
