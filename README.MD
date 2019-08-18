@@ -57,4 +57,4 @@ Supported args:
  
  ### Binary Releases
  
- You can find some binary releases created with `pyinstaller` that can be used by any linux with glibc support (`alpine` is not supported yet because it needs a muslibc build)
+ You can find some binary releases created with `pyinstaller` that can be used by any linux with glibc 2.28+ support(you can see glibc release timeline [here](https://sourceware.org/glibc/wiki/Glibc%20Timeline). `alpine` is not supported yet because it needs a muslibc build).
